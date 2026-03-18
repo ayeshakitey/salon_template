@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | KCOZM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Cart Page Specific Styles */
+        .cart-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            min-height: 60vh;
+        }
+
+        .cart-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .cart-header-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-product-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-product-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--dark-bg);
+        }
+
+        .cart-quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            background: #f5f5f5;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .qty-btn:hover {
+            background: #ddd;
+        }
+
+        .cart-remove-btn {
+            color: #ff4d4d;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .cart-remove-btn:hover {
+            color: #cc0000;
+        }
+
+        .cart-summary {
+            margin-top: 40px;
+            text-align: right;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .cart-total-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            padding: 50px 0;
+            color: #777;
+        }
+
+        .empty-cart-message i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .cart-header-row {
+                display: none;
+            }
+            .cart-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                position: relative;
+            }
+            .cart-remove-btn {
+                position: absolute;
+                top: 20px;
+                right: 0;
+            }
+            .cart-price::before { content: "Price: "; font-weight: 600; }
+            .cart-subtotal::before { content: "Subtotal: "; font-weight: 600; }
+            .cart-quantity-controls {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="display: inline-block; text-decoration: none;">
+                    <img src="Final%20Logo%20Kcozm%20PNG.png" alt="KCOZM Logo" class="premium-logo">
+
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="products.html">PRODUCTS</a></li>
+                    <li><a href="franchise.html">Franchise</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="index.html#join">JOIN OUR TEAM</a></li>
+                    <li class="nav-cart-item">
+                        <a href="cart.html" class="nav-cart active" title="View Cart" style="display: flex; align-items: center; position: relative;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <span class="cart-count" style="background: var(--primary-color); color: black; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; position: absolute; top: -8px; right: -12px;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); min-height: 40vh;">
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content text-center">
+            <h1 class="page-title" style="font-size: 3rem;">YOUR CART</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>/</span> <a href="products.html">Products</a> <span>/</span> <span class="current">Cart</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Items Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-container" id="cart-container">
+                <!-- Cart content will be injected here by JS -->
+                <div class="empty-cart-message">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <h3>Your cart is empty</h3>
+                    <p style="margin-top: 10px; margin-bottom: 20px;">Looks like you haven't added anything yet.</p>
+                    <a href="products.html" class="btn btn-primary">Start Shopping</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo footer-logo">
+                    <a href="index.html" style="display: inline-block; text-decoration: none;">
+                        <img src="Final%20Logo%20Kcozm%20PNG.png" alt="KCOZM Logo" class="premium-logo">
+
+                    </a>
+                </div>
+                <p>Asia's Most Awarded Premium Salon Chain, setting benchmarks in the beauty and wellness industry since 2002.</p>
+            </div>
+            <div class="footer-col">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="franchise.html">Franchise</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>CONTACT US</h3>
+                <p>Corporate Office: Mohali (SAS Nagar), Punjab</p>
+                <p>Mon - Sun: 10:00 AM - 8:00 PM</p>
+                <p>Email: info@kcozm.in</p>
+                <p>Phone: +91 9888514006</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 KCOZM. All Rights Reserved. Designed for premium experience.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartContainer = document.getElementById('cart-container');
+            
+            function renderCartPage() {
+                const cart = JSON.parse(localStorage.getItem('KCOZM_cart')) || [];
+                
+                if (cart.length === 0) {
+                    cartContainer.innerHTML = `
+                        <div class="empty-cart-message">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <h3>Your cart is empty</h3>
+                            <p style="margin-top: 10px; margin-bottom: 20px;">Looks like you haven't added any luxury products yet.</p>
+                            <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let total = 0;
+                let cartHTML = `
+                    <div class="cart-header-row">
+                        <div>Product</div>
+                        <div>Price</div>
+                        <div>Quantity</div>
+                        <div>Total</div>
+                    </div>
+                `;
+
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    cartHTML += `
+                        <div class="cart-item">
+                            <div class="cart-product-info">
+                                <img src="${item.image}" alt="${item.name}" class="cart-product-img">
+                                <div>
+                                    <div class="cart-product-title">${item.name}</div>
+                                </div>
+                            </div>
+                            <div class="cart-price">₹ ${item.price.toLocaleString()}</div>
+                            <div class="cart-quantity-controls">
+                                <button class="qty-btn minus" data-id="${item.id}">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="qty-btn plus" data-id="${item.id}">+</button>
+                            </div>
+                            <div class="cart-subtotal">₹ ${itemTotal.toLocaleString()}</div>
+                            <button class="cart-remove-btn" data-id="${item.id}" title="Remove Item"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    `;
+                });
+
+                cartHTML += `
+                    <div class="cart-summary">
+                        <h3>Cart Total</h3>
+                        <div class="cart-total-price">₹ ${total.toLocaleString()}</div>
+                        <a href="#" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;" onclick="alert('Checkout functionality to be implemented soon!'); event.preventDefault();">Proceed to Checkout</a>
+                    </div>
+                `;
+
+                cartContainer.innerHTML = cartHTML;
+                attachCartListeners();
+            }
+
+            function attachCartListeners() {
+                // Attach quantity plus
+                document.querySelectorAll('.qty-btn.plus').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        let cart = JSON.parse(localStorage.getItem('KCOZM_cart')) || [];
+                        const item = cart.find(i => i.id === id);
+                        if (item) {
+                            item.quantity += 1;
+                            localStorage.setItem('KCOZM_cart', JSON.stringify(cart));
+                            renderCartPage();
+                            updateCartBadges(); // Call global function from script.js
+                        }
+                    });
+                });
+
+                // Attach quantity minus
+                document.querySelectorAll('.qty-btn.minus').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        let cart = JSON.parse(localStorage.getItem('KCOZM_cart')) || [];
+                        const itemIndex = cart.findIndex(i => i.id === id);
+                        
+                        if (itemIndex > -1) {
+                            if (cart[itemIndex].quantity > 1) {
+                                cart[itemIndex].quantity -= 1;
+                            } else {
+                                cart.splice(itemIndex, 1);
+                            }
+                            localStorage.setItem('KCOZM_cart', JSON.stringify(cart));
+                            renderCartPage();
+                            updateCartBadges();
+                        }
+                    });
+                });
+
+                // Attach remove button
+                document.querySelectorAll('.cart-remove-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = e.currentTarget.getAttribute('data-id');
+                        let cart = JSON.parse(localStorage.getItem('KCOZM_cart')) || [];
+                        const newCart = cart.filter(i => i.id !== id);
+                        localStorage.setItem('KCOZM_cart', JSON.stringify(newCart));
+                        renderCartPage();
+                        updateCartBadges();
+                    });
+                });
+            }
+
+            // Initial render
+            renderCartPage();
+            
+            // Re-render when storage changes (optional, helps if multiple tabs open)
+            window.addEventListener('storage', (e) => {
+                if(e.key === 'KCOZM_cart') {
+                    renderCartPage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

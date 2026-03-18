@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | KCOZM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="display: inline-block; text-decoration: none;">
+                    <img src="Final%20Logo%20Kcozm%20PNG.png" alt="KCOZM Logo" class="premium-logo">
+
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html" class="active">ABOUT US</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="products.html">PRODUCTS</a></li>
+                    <li><a href="franchise.html">FRANCHISE</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="index.html#join">JOIN OUR TEAM</a></li>
+                    <li class="nav-cart-item">
+                        <a href="cart.html" class="nav-cart" title="View Cart" style="display: flex; align-items: center; position: relative;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <span class="cart-count" style="background: var(--primary-color); color: black; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; position: absolute; top: -8px; right: -12px;">0</span>
+                        </a>
+                    </li>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero / Breadcrumb Header -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="container page-hero-content text-center">
+            <h1 class="page-title">ABOUT US</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>/</span> <span class="current">About Us</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- The KCOZM Story -->
+    <section class="story-section">
+        <div class="story-bg-text">Story</div>
+        <div class="container section-container text-center">
+            <h2 class="section-title">THE KCOZM STORY</h2>
+            <div class="divider"></div>
+            <p class="about-text text-center">
+                KCOZM, transforming the salon industry with luxurious salon experience. Asia’s Most Awarded Premium Salon Chain, KCOZM Salon is a one stop destination for premium hair, makeup, skin, nail & aesthetics services. Started in the year 2002 in the city beautiful Chandigarh with the main motive to provide top notch services to the clients of all walks of life. With over 23+ years of experience, 15 lakhs+ satisfied clients, 40+ successfully running salons & 2000+ well trained staff, KCOZM is providing world class salon experience.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <div class="stat-number">23+</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15L+</div>
+                <div class="stat-label">Satisfied Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Running Salons</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2000+</div>
+                <div class="stat-label">Trained Staff</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Journey & Vision -->
+    <section class="vision-section">
+        <div class="container section-container">
+            <div class="vision-content text-center">
+                <p class="pre-heading">BRAND JOURNEY</p>
+                <h2 class="section-title">OUR VISION</h2>
+                <div class="divider"></div>
+                <p class="about-text">
+                    Becoming Asia's Most Awarded Premium Salon Chain wasn't built overnight. It's the result of sheer dedication to providing a consistently opulent experience. Our aim is not just expansion, but maintaining the benchmark of luxury. We envision launching over <strong>100 top-class premium salons</strong> across India by the end of 2027, touching more lives and redefining beauty standards.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section class="founders-section section-container" style="background-color: var(--light-bg); padding: 80px 0;">
+        <style>
+            .founder-card {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+                background: #ffffff;
+                border-radius: 12px;
+                margin-bottom: 50px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+                border: 1px solid #f0f0f0;
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+            }
+            .founder-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            }
+            .founder-image {
+                flex: 1;
+                min-width: 300px;
+            }
+            .founder-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                min-height: 450px;
+            }
+            .founder-info {
+                flex: 1;
+                padding: 60px 50px;
+                min-width: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .founder-name {
+                font-size: 2.2rem;
+                color: var(--text-dark);
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+            .founder-title {
+                color: var(--primary-color);
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+                margin-bottom: 25px;
+                font-weight: 500;
+            }
+            .founder-desc {
+                color: #555;
+                line-height: 1.8;
+                font-size: 1.05rem;
+            }
+            @media (max-width: 768px) {
+                .founder-card.zigzag .founder-info {
+                    order: 2 !important;
+                }
+                .founder-card.zigzag .founder-image {
+                    order: 1 !important;
+                }
+                .founder-info {
+                    padding: 40px 30px;
+                }
+            }
+        </style>
+        <div class="container">
+            <div class="text-center mb-50" style="margin-bottom: 60px;">
+                <p class="pre-heading" style="color: var(--primary-color);">THE VISIONARIES</p>
+                <h2 class="section-title" style="color: var(--text-dark);">MEET OUR FOUNDERS</h2>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Founder 1 -->
+            <div class="founder-card">
+                <div class="founder-image">
+                    <!-- Placeholder premium portrait image -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="First Owner">
+                </div>
+                <div class="founder-info">
+                    <h3 class="founder-name">Owner Name 1</h3>
+                    <h4 class="founder-title">CO-FOUNDER & DIRECTOR</h4>
+                    <p class="founder-desc">
+                        "Leading the vision of KCOZM, I've always believed that pure luxury and exceptional service must go hand-in-hand. Over the past two decades, my focus has been on transforming standard salon visits into curated experiences of master-craftsmanship, ensuring every detail reflects our commitment to excellence."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Founder 2 (Zigzag) -->
+            <div class="founder-card zigzag">
+                <div class="founder-info" style="order: 1;">
+                    <h3 class="founder-name">Owner Name 2</h3>
+                    <h4 class="founder-title">CO-FOUNDER & CREATIVE HEAD</h4>
+                    <p class="founder-desc">
+                        "Artistic perfection is what defines our brand. My journey has been dedicated to bridging the gap between global runway trends and everyday wearability. We train our masters to not just style hair, but to unveil the intrinsic confidence within every client who steps through our doors."
+                    </p>
+                </div>
+                <div class="founder-image" style="order: 2;">
+                    <!-- Placeholder premium portrait image -->
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Second Owner">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section text-center" style="padding: 60px 20px; background-color: var(--dark-bg);">
+        <a href="franchise.html" class="btn btn-outline" style="border-radius: 30px; border-width: 2px;">Know About Franchise</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo footer-logo">
+                    <a href="index.html" style="display: inline-block; text-decoration: none;">
+                        <img src="Final%20Logo%20Kcozm%20PNG.png" alt="KCOZM Logo" class="premium-logo">
+
+                    </a>
+                </div>
+                <p>Asia's Most Awarded Premium Salon Chain, setting benchmarks in the beauty and wellness industry since 2002.</p>
+            </div>
+            <div class="footer-col">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="franchise.html">Franchise</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>CONTACT US</h3>
+                <p>Corporate Office: Mohali (SAS Nagar), Punjab</p>
+                <p>Mon - Sun: 10:00 AM - 8:00 PM</p>
+                <p>Email: info@kcozm.in</p>
+                <p>Phone: +91 9888514006</p>
+            </div>
+            <div class="footer-col">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe to get updates on latest offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn btn-primary small">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 KCOZM. All Rights Reserved. Designed for premium experience.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Bottom Action Bar -->
+    <div class="bottom-action-bar">
+        <a href="tel:+919888514006" class="call-btn">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call Now
+        </a>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919888514006" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="white" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+        <span class="wa-text">WhatsApp us</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
